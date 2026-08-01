@@ -21,16 +21,22 @@ Decompose work into small, verifiable tasks with explicit acceptance criteria. G
 
 ## The Planning Process
 
-### Step 1: Enter Plan Mode
+### Step 1: Research read-only (no product code)
 
-Before writing any code, operate in read-only mode:
+Before writing any product/code implementation, operate in read-only research mode:
 
 - Read the spec and relevant codebase sections
 - Identify existing patterns and conventions
 - Map dependencies between components
 - Note risks and unknowns
 
-**Do NOT write code during planning.** The output is a plan document saved to `tasks/plan.md` and a task list saved to `tasks/todo.md`, not implementation.
+**Do NOT write product/code during planning.** Writing `tasks/plan.md` and
+`tasks/todo.md` is the deliverable — that file write is required, not a
+violation of read-only research.
+
+**Do NOT** switch to Cursor Plan mode, call CreatePlan, or treat a Cursor Plan
+UI card as the plan. This skill owns the format and paths; a Plan card is not a
+substitute for `tasks/plan.md` / `tasks/todo.md`.
 
 ### Step 2: Identify the Dependency Graph
 
@@ -142,10 +148,16 @@ If a task is L or larger, it should be broken into smaller tasks. An agent perfo
 
 ## Output Files
 
-- **Plan document:** Save the implementation plan to `tasks/plan.md`.
-- **Task list:** Save the checklist-style task list to `tasks/todo.md`.
+Required deliverables (always write both):
 
-Create the `tasks/` directory if it does not exist. These paths are the convention expected by the `/build` command and other downstream tooling.
+- **Plan document:** `tasks/plan.md` — full plan per the template below
+- **Task list:** `tasks/todo.md` — checklist-style task list
+
+Create the `tasks/` directory if it does not exist. These paths are the
+convention expected by the `/build` command and other downstream tooling.
+
+Present the written files for human review (summarize and point at the paths).
+Do not stop after a Cursor Plan UI card alone.
 
 ## Plan Document Template
 
@@ -211,7 +223,9 @@ When multiple agents or sessions are available:
 
 ## Red Flags
 
-- Starting implementation without a written task list
+- Using CreatePlan / Cursor Plan mode instead of writing `tasks/plan.md` and
+  `tasks/todo.md`
+- Starting implementation without a written task list on disk
 - Tasks that say "implement the feature" without acceptance criteria
 - No verification steps in the plan
 - All tasks are XL-sized
@@ -222,6 +236,7 @@ When multiple agents or sessions are available:
 
 Before starting implementation, confirm:
 
+- [ ] `tasks/plan.md` and `tasks/todo.md` exist on disk (not only a Plan card)
 - [ ] Every task has acceptance criteria
 - [ ] Every task has a verification step
 - [ ] Task dependencies are identified and ordered correctly
