@@ -20,3 +20,5 @@ Read the existing spec (SPEC.md or equivalent) and the relevant codebase section
 
 Create `tasks/` if missing. Do not treat a Cursor Plan UI card as a substitute
 for `tasks/plan.md` / `tasks/todo.md`.
+
+If tasks/plan.md or tasks/todo.md already exists with unchecked tasks for different work, stop and ask before writing — never silently overwrite an incomplete plan.
