@@ -1,5 +1,7 @@
 ---
+name: ship
 description: Run the pre-launch checklist via parallel fan-out to specialist personas, then synthesize a go/no-go decision
+disable-model-invocation: true
 ---
 
 Invoke the agent-skills:shipping-and-launch skill.

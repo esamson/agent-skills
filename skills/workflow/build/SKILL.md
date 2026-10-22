@@ -1,5 +1,7 @@
 ---
+name: build
 description: Implement tasks incrementally — build, test, verify, commit. Add "auto" to run the whole plan in one approved pass.
+disable-model-invocation: true
 ---
 
 Invoke the agent-skills:incremental-implementation skill alongside agent-skills:test-driven-development.
