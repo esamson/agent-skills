@@ -1,4 +1,5 @@
 ---
+name: workflow-constraints
 description: Define and enforce this project's quality bar — interview, sane defaults, CONSTRAINTS.md
 disable-model-invocation: true
 ---
@@ -28,6 +29,6 @@ Default behaviour with no arguments: set up constraints for this repository.
 7. **Verify.** Run the constraints against the current branch. If anything fails that the user disagrees with, fix the constraint now rather than leaving a gate people will learn to ignore.
 
 Sub-commands:
-- `/constraints check` — run the current constraints against this branch and report
-- `/constraints guard` — inspect the diff for a weakened bar: lowered thresholds, skipped or deleted tests, new suppression comments, unfinished stubs, new exceptions
-- `/constraints ratchet` — record today's measured values as the floor that must not fall
+- `/workflow-constraints check` — run the current constraints against this branch and report
+- `/workflow-constraints guard` — inspect the diff for a weakened bar: lowered thresholds, skipped or deleted tests, new suppression comments, unfinished stubs, new exceptions
+- `/workflow-constraints ratchet` — record today's measured values as the floor that must not fall

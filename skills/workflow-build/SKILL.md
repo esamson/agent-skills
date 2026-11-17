@@ -1,4 +1,5 @@
 ---
+name: workflow-build
 description: Implement tasks incrementally — build, test, verify, commit. Add "auto" to run the whole plan in one approved pass.
 disable-model-invocation: true
 ---
@@ -7,8 +8,8 @@ Invoke the agent-skills:incremental-implementation skill alongside agent-skills:
 
 ## Modes
 
-- **`/build`** — implement the *next* pending task, then stop (careful, one slice at a time).
-- **`/build auto`** — generate the plan if needed, get a single approval, then implement *every* task without stopping between them.
+- **`/workflow-build`** — implement the *next* pending task, then stop (careful, one slice at a time).
+- **`/workflow-build auto`** — generate the plan if needed, get a single approval, then implement *every* task without stopping between them.
 
 `$ARGUMENTS` selects the mode. Treat `auto` (canonical) or `all` as autonomous mode; anything else (or empty) is the default single-task mode. Note: autonomous mode is not faster *per task* — it runs the same test-driven loop — it only removes the human stepping *between* tasks.
 
@@ -25,7 +26,7 @@ Pick the next pending task from the plan. Then:
 7. Commit with a descriptive message
 8. Mark the task complete and stop
 
-## Autonomous: the whole plan (`/build auto`)
+## Autonomous: the whole plan (`/workflow-build auto`)
 
 Use this once a spec exists and you want to collapse plan + build into one run. It removes the manual stepping between tasks — **not** the verification. Every task still earns a passing test and its own commit.
 
@@ -39,7 +40,7 @@ Use this once a spec exists and you want to collapse plan + build into one run. 
    - the spec is ambiguous, or a task needs a decision the spec doesn't cover
    - a task is high-risk or irreversible — auth/permission changes, destructive data migrations, payments, deletions, deploys, anything touching secrets, **or anything you can't undo with `git revert`** → follow agent-skills:doubt-driven-development and get explicit sign-off before continuing
 
-   After the user resolves a blocker, they re-invoke `/build auto` — it resumes from the next pending task.
+   After the user resolves a blocker, they re-invoke `/workflow-build auto` — it resumes from the next pending task.
 7. **Summarize at the end:** tasks completed, tests added, commits made, and anything skipped, flagged, or left for the user.
 
 If any step fails, follow the agent-skills:debugging-and-error-recovery skill.
